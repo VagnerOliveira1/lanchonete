@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clientes
   resources :produtos
   root to: 'home#index'
   get '/home', to: 'home#index'
