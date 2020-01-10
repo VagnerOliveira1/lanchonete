@@ -5,12 +5,14 @@ Rails.application.routes.draw do
   end
   resources :clientes
   resources :produtos
-  root to: 'home#index'
 
-  get '/home', to: 'home#index'
   resources :tipo_produtos
 
+  get '/admin', to: 'admin#index'
   get '/login', to: 'login#index'
   post '/login/logar', to: 'login#logar'
+  get '/login/sair', to: 'login#sair'
+  root to: 'home#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

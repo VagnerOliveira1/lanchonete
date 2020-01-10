@@ -1,5 +1,5 @@
 class LoginController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, :valida_logado_admin
 
   layout "login"
   def index;end
@@ -17,12 +17,15 @@ class LoginController < ApplicationController
 
         cookies[:lanchonete_adm] = {value: value.to_json, expires: time, httponly: true }
 
-        redirect_to "/home"
+        redirect_to "/admin"
     else
       flash[:error] = "Email ou Senha inválidos"
       redirect_to "/login"
     end
-
   end
 
+  def sair
+      cookies[:lanchonete_adm] = nil
+      redirect_to "/login"
+  end
 end
