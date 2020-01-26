@@ -37,6 +37,7 @@ gem 'record_tag_helper', '~> 1.0'
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'will_paginate'
 
 
 

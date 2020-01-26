@@ -44,22 +44,30 @@
         </div>
 
         <div class="row">
-          <% @produtos.each do |produto| %>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="<%= produto.imagem%>" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="/produto/<%= produto.id%>"><%= produto.name %></a>
-                </h4>
-                <h5>R$ <%= produto.valor %></h5>
-                <p class="card-text"><%= produto.descricao.truncate(100) %></p>
+          <% if @produtos.blank? %>
+            <h4> Nenhum produto encontrado </h4>
+          <% else %>
+              <% @produtos.each do |produto| %>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                  <a href="#"><img class="card-img-top" src="<%= produto.imagem%>" alt=""></a>
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <a href="/produto/<%= produto.id%>"><%= produto.name %></a>
+                    </h4>
+                    <h5>R$ <%= produto.valor %></h5>
+                    <p class="card-text"><%= produto.descricao.truncate(100) %></p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="/produto/<%= produto.id %>/adicionar">Adicionar no carrinho</a>
+                  </div>
+                </div>
               </div>
-              <div class="card-footer">
-                <a href="/produto/<%= produto.id %>/adicionar">Adicionar no carrinho</a>
-              </div>
-            </div>
-          </div>
+             <%end%>
+
+             <div class="apple_pagination">
+               <%= will_paginate @produtos, :container => false %>
+             </div>
          <%end%>
 
         </div>
