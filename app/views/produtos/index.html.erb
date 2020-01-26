@@ -11,11 +11,12 @@
     <thead>
       <tr>
             <th>Name</th>
+            <th>Imagem</th>
             <th>Descricao</th>
             <th>Quantidade</th>
             <th>Valor</th>
             <th>Tipo produto</th>
-            
+
             <th></th>
         <th></th>
         <th></th>
@@ -25,6 +26,9 @@
     <tbody>
       <%= content_tag_for(:tr, @produtos) do |produto| %>
             <td><%= produto.name %></td>
+            <td>
+              <img src="<%= produto.imagem %>"style="width:200px">
+            </td>
             <td><%= produto.descricao %></td>
             <td><%= produto.quantidade %></td>
             <td><%= "R$ #{produto.valor}"%></td>
