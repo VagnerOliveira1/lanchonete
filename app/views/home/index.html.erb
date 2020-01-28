@@ -50,7 +50,7 @@
               <% @produtos.each do |produto| %>
               <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
-                  <a href="#"><img class="card-img-top" src="<%= produto.imagem%>" alt=""></a>
+                  <a href="/produto/<%= produto.id %>"><img class="card-img-top" src="<%= produto.imagem%>" alt="<%= produto.name %>"></a>
                   <div class="card-body">
                     <h4 class="card-title">
                       <a href="/produto/<%= produto.id%>"><%= produto.name %></a>
@@ -59,7 +59,11 @@
                     <p class="card-text"><%= produto.descricao.truncate(100) %></p>
                   </div>
                   <div class="card-footer">
-                    <a href="/produto/<%= produto.id %>/adicionar">Adicionar no carrinho</a>
+                  <% if existe_carrinho?(produto.id)%>
+                        <a href="/produto/<%= produto.id %>/remover" style="color: red">Remover do carrinho</a>
+                    <% else %>
+                        <a href="/produto/<%= produto.id %>/adicionar">Adicionar no carrinho</a>
+                    <% end%>
                   </div>
                 </div>
               </div>
