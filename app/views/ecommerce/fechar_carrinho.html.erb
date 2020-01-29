@@ -1,0 +1,15 @@
+<div class="row">
+  <h2> Meu Carrinho</h2>
+</div>
+<div class="row">
+  <ul>
+    <% @produtos.each do |produto| %>
+      <li>
+        <%= produto.name %> -R$ <%= produto.valor %>
+      </li>
+   <%end%>
+  </ul>
+</div>
+<div class="row">
+  <a href="/carrinho/fechar" class="btn btn-success" style= "width:100%; margin-bottom: 20px; font-size: 20px">Concluir a compra</a>
+</div>

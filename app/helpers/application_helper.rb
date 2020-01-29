@@ -10,4 +10,10 @@ module ApplicationHelper
       return JSON.parse(cookies[:carrinho]).length
   end
 
+  def cliente_logado?
+      return  false if cookies[:cliente_login].blank?
+      cliente = JSON.parse(cookies[:cliente_login]);
+      return Cliente.where(id: cliente["id"]).count > 0
+  end
+
 end

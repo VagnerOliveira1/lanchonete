@@ -35,13 +35,25 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(página atual)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link " href="/cadastro">Cadastro</a>
-        </li>
+        <% if cliente_logado? %>
+            <li class="nav-item">
+              <a class="nav-link" href="/cliente/sair">Sair</a>
+            </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/cliente/cadastrar">Editar Perfil</a>
+              </li>
+        <% else %>
+            <li class="nav-item">
+              <a class="nav-link" href="/cliente/logar">Login</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link " href="/cliente/cadastrar">Cadastro</a>
+            </li>
+        <% end %>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           A Empresa
