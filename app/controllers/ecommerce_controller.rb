@@ -64,6 +64,12 @@ class EcommerceController < ApplicationController
     def login
     end
 
+    def concluir_pagamento
+
+
+
+    end
+
     def fazer_login_cliente
       clientes = Cliente.where(email: params[:email], senha: params[:senha])
       if clientes.count > 0
@@ -120,7 +126,7 @@ class EcommerceController < ApplicationController
           render :cadastrar
         end
 
-      else
+    else
         c = JSON.parse(cookies[:cliente_login])
         @cliente = Cliente.find(c["id"])
         if @cliente.update(cliente_params)
@@ -132,12 +138,13 @@ class EcommerceController < ApplicationController
               cep: @cliente.cep,
               telefone: @cliente.telefone
             }.to_json, expires: 1.year.from_now, httponly: true }
-          redirect_to "/"
+            flash[:success] = " Dados atualizados com sucesso"
+          redirect_to "/cliente/cadastrar"
         else
           render :cadastrar
         end
-      end
     end
+  end
 
 
     private

@@ -15,3 +15,24 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+var lanchonete = {}
+lanchonete.pagamentoCartao = function() {
+  var pg_id = "0356A63D7B814C8CB330668A34A48CD6";
+
+  Iugu.setTesMode(true);
+  ugu.setAccountID(pg_id);
+  Iugu.setup();
+
+  cc = Iugu.CreditCard($("#number").value,$("#mes").value, $("#ano").value, $("#nome").value,$("#sobrenome").value, $("#cvv").value)
+
+  Iugu.createPaymentToken(cc, function(data){
+    if (data.errors){
+      alert("erro ao gerar");
+      console.log(data.errors);
+
+    }else {
+      var token = data.id 
+    }
+  });
+}

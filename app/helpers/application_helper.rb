@@ -16,4 +16,9 @@ module ApplicationHelper
       return Cliente.where(id: cliente["id"]).count > 0
   end
 
+  def cliente
+      cliente = JSON.parse(cookies[:cliente_login]);
+      return Cliente.find(cliente["id"])
+  end
+
 end
