@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Lanchonete Admin</title>
+  <title>Sua Loja Admin</title>
 
   <%= csrf_meta_tags %>
   <link href="https://blackrockdigital.github.io/startbootstrap-shop-homepage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item active" <% if params["controller"] == "home" %>class="nav-item active"<% end %>><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item active" <% if params["controller"] == "home" %>class="nav-item active"<% end %>><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item" <% if params["controller"] == "tipo_produtos" %>class="nav-item active"<% end %>><a class="nav-link" href="/tipo_produtos">Tipo de produtos</a></li>
             <li class="nav-item" <% if params["controller"] == "produtos" %>class="nav-item active"<% end %>><a class="nav-link" href="/produtos">Produtos</a></li>
             <li class="nav-item" <% if params["controller"] == "clientes" %>class="nav-item active"<% end %>><a class="nav-link" href="/clientes">Clientes</a></li>
